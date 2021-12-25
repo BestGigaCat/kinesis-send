@@ -3,14 +3,14 @@ import json
 import random
 import boto3
 
-STREAM_NAME = "ShimingExampleInputStream"
+STREAM_NAME = "ExampleInputStream"
 
 
 def get_data():
     return {
-        'EVENT_TIME': datetime.datetime.now().isoformat(),
-        'name': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
-        'salary': round(random.random() * 100, 2)}
+        'event_time': datetime.datetime.now().isoformat(),
+        'ticker': random.choice(['AAPL', 'AMZN', 'MSFT', 'INTC', 'TBV']),
+        'price': round(random.random() * 100, 2)}
 
 
 def generate(stream_name, kinesis_client):
